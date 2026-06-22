@@ -29,6 +29,107 @@
             --nav-height: 70px;
         }
 
+        /* ===== ANIMATION VARIABLES ===== */
+        :root {
+            --anim-duration-fast: 0.3s;
+            --anim-duration-normal: 0.5s;
+            --anim-duration-slow: 0.8s;
+            --anim-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --anim-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ===== KEYFRAMES ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 163, 224, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(0, 163, 224, 0); }
+        }
+
+        /* ===== ANIMATION UTILITY CLASSES ===== */
+        .anim-hidden {
+            opacity: 0;
+            transform: translateY(24px);
+            will-change: transform, opacity;
+        }
+
+        .anim-hidden-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            will-change: transform, opacity;
+        }
+
+        .anim-visible {
+            animation: fadeInUp var(--anim-duration-normal) var(--anim-easing) forwards;
+        }
+
+        .anim-visible-scale {
+            animation: scaleIn var(--anim-duration-normal) var(--anim-easing) forwards;
+        }
+
+        .anim-visible-fade {
+            animation: fadeIn var(--anim-duration-normal) var(--anim-easing) forwards;
+        }
+
+        /* Stagger delays for card grids */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+
+        /* ===== PREFERS REDUCED MOTION ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .anim-hidden,
+            .anim-hidden-scale {
+                opacity: 1;
+                transform: none;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
         /* ===== RESET & BASE ===== */
         *,
         *::before,
@@ -1258,24 +1359,24 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="hero-badge">🏥 Est. 2010 &bull; Christchurch, NZ</span>
-            <h1>Avonhead Family<br><span>Health Centre</span></h1>
-            <p>Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
-            <div class="hero-buttons">
+            <span class="hero-badge anim-hero" style="animation: scaleIn 0.6s ease-out 0.1s both;">🏥 Est. 2010 &bull; Christchurch, NZ</span>
+            <h1 class="anim-hero" style="animation: fadeInUp 0.8s ease-out 0.3s both;">Avonhead Family<br><span>Health Centre</span></h1>
+            <p class="anim-hero" style="animation: fadeInUp 0.8s ease-out 0.5s both;">Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
+            <div class="hero-buttons anim-hero" style="animation: fadeInUp 0.8s ease-out 0.7s both;">
                 <a href="#contact" class="btn btn-secondary">📅 Book an Appointment</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
-            <div class="hero-stats">
+            <div class="hero-stats" id="heroStats">
                 <div class="hero-stat">
-                    <span class="number">14+</span>
+                    <span class="number" data-target="14" data-suffix="+">0</span>
                     <span class="label">Years of Service</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="number">12K+</span>
+                    <span class="number" data-target="12" data-suffix="K+">0</span>
                     <span class="label">Patients Cared For</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="number">4.9★</span>
+                    <span class="number" data-target="49" data-suffix="" data-prefix="4.">0</span>
                     <span class="label">Patient Rating</span>
                 </div>
             </div>
@@ -1285,11 +1386,13 @@
     <!-- ===== ABOUT ===== -->
     <section class="about section" id="about">
         <div class="container">
-            <h2 class="section-title">About Our Clinic</h2>
-            <p class="section-subtitle">Providing compassionate, comprehensive healthcare for the whole family in a warm and welcoming environment.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">About Our Clinic</h2>
+                <p class="section-subtitle">Providing compassionate, comprehensive healthcare for the whole family in a warm and welcoming environment.</p>
+            </div>
             <div class="about-grid">
-                <div class="about-image">🏥</div>
-                <div class="about-text">
+                <div class="about-image anim-hidden" data-anim>🏥</div>
+                <div class="about-text anim-hidden" data-anim>
                     <h3>Your Health, Our Priority</h3>
                     <p>At Avonhead Family Health Centre, we believe in healthcare that puts people first. Our dedicated team of experienced general practitioners and support staff work together to provide personalised medical care for every member of your family &mdash; from infants to seniors.</p>
                     <p>Conveniently located in the heart of Avonhead, Christchurch, our modern facility is equipped with the latest medical technology to ensure accurate diagnoses and effective treatments. We are proud to be an accredited General Practice meeting the highest standards of care.</p>
@@ -1307,30 +1410,32 @@
     <!-- ===== WHY CHOOSE US ===== -->
     <section class="why-choose section" id="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Choose Avonhead Health?</h2>
-            <p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">Why Choose Avonhead Health?</h2>
+                <p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p>
+            </div>
             <div class="why-grid">
-                <div class="why-card">
+                <div class="why-card anim-hidden" data-anim>
                     <div class="icon">👨‍⚕️</div>
                     <h4>Experienced GPs</h4>
                     <p>Over 20 years of combined experience in family medicine.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card anim-hidden" data-anim>
                     <div class="icon">📅</div>
                     <h4>Same-Day Appointments</h4>
                     <p>Urgent care when you need it &mdash; no long waiting lists.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card anim-hidden" data-anim>
                     <div class="icon">🩺</div>
                     <h4>ACC Registered</h4>
                     <p>Fully accredited for accident and injury care.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card anim-hidden" data-anim>
                     <div class="icon">❤️</div>
                     <h4>Patient-Centred Care</h4>
                     <p>Your health journey, guided by compassion and respect.</p>
                 </div>
-                <div class="why-card">
+                <div class="why-card anim-hidden" data-anim>
                     <div class="icon">🏛️</div>
                     <h4>Modern Facilities</h4>
                     <p>Comfortable, clean, and equipped with the latest technology.</p>
@@ -1342,35 +1447,37 @@
     <!-- ===== SERVICES ===== -->
     <section class="services section" id="services">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive healthcare services tailored to every stage of life.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive healthcare services tailored to every stage of life.</p>
+            </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">❤️</div>
                     <h4>General Health Check</h4>
                     <p>Comprehensive health assessments, blood tests, and preventive screenings for all ages.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">👩</div>
                     <h4>Women's Health</h4>
                     <p>Cervical screening, contraceptive advice, menopause management, and pregnancy care.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">👶</div>
                     <h4>Children's Health</h4>
                     <p>Well-child checks, immunisations, developmental assessments, and acute care.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">🔬</div>
                     <h4>Minor Surgery</h4>
                     <p>Skin lesion removal, wound management, and minor surgical procedures in-clinic.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">☀️</div>
                     <h4>Skin Checks</h4>
                     <p>Full skin examinations, mole mapping, and early detection of skin cancers.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card anim-hidden" data-anim>
                     <div class="icon">✈️</div>
                     <h4>Travel Medicine</h4>
                     <p>Travel vaccinations, health advice, and prescriptions for your overseas trips.</p>
@@ -1382,22 +1489,24 @@
     <!-- ===== OUR TEAM ===== -->
     <section class="team section" id="team">
         <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
-            <p class="section-subtitle">Dedicated healthcare professionals committed to your wellbeing.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">Dedicated healthcare professionals committed to your wellbeing.</p>
+            </div>
             <div class="team-grid">
-                <div class="team-card">
+                <div class="team-card anim-hidden" data-anim>
                     <div class="team-img dr1">👩‍⚕️</div>
                     <h4>Dr. Sarah Mitchell</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
                     <p>With over 15 years of experience, Dr. Mitchell has a special interest in women's health and chronic disease management. She is known for her warm, thorough approach to patient care.</p>
                 </div>
-                <div class="team-card">
+                <div class="team-card anim-hidden" data-anim>
                     <div class="team-img dr2">👨‍⚕️</div>
                     <h4>Dr. James Chen</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
                     <p>Dr. Chen brings 12 years of experience in family medicine, with expertise in minor surgery and skin checks. He is passionate about preventive care and patient education.</p>
                 </div>
-                <div class="team-card">
+                <div class="team-card anim-hidden" data-anim>
                     <div class="team-img dr3">👩‍⚕️</div>
                     <h4>Dr. Emily Watson</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
@@ -1410,10 +1519,12 @@
     <!-- ===== TESTIMONIALS ===== -->
     <section class="testimonials section" id="testimonials">
         <div class="container">
-            <h2 class="section-title">What Our Patients Say</h2>
-            <p class="section-subtitle">Hear from the families we've had the privilege of caring for.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">What Our Patients Say</h2>
+                <p class="section-subtitle">Hear from the families we've had the privilege of caring for.</p>
+            </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card anim-hidden" data-anim>
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"The team at Avonhead Health Centre are absolutely wonderful. They always take the time to listen and explain everything clearly. I wouldn't trust anyone else with my family's health."</blockquote>
                     <div class="testimonial-author">
@@ -1424,7 +1535,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card anim-hidden" data-anim>
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"I moved to Christchurch two years ago and was lucky to find this clinic. Dr. Chen is fantastic &mdash; he really cares about his patients. The reception staff are always friendly too."</blockquote>
                     <div class="testimonial-author">
@@ -1435,7 +1546,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card anim-hidden" data-anim>
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"The children's health service here is outstanding. Dr. Watson is so patient and gentle with my kids. Same-day appointments have been a lifesaver more than once!"</blockquote>
                     <div class="testimonial-author">
@@ -1456,10 +1567,12 @@
     <!-- ===== CONTACT / BOOKING ===== -->
     <section class="contact section" id="contact">
         <div class="container">
-            <h2 class="section-title">Book an Appointment</h2>
-            <p class="section-subtitle">Ready to visit us? Fill out the form below and we'll confirm your booking shortly.</p>
+            <div class="anim-hidden" data-anim>
+                <h2 class="section-title">Book an Appointment</h2>
+                <p class="section-subtitle">Ready to visit us? Fill out the form below and we'll confirm your booking shortly.</p>
+            </div>
             <div class="contact-grid">
-                <div class="contact-form">
+                <div class="contact-form anim-hidden" data-anim>
                     <h3>📋 Request a Booking</h3>
                     <form id="bookingForm" novalidate>
                         <div class="form-row">
@@ -1531,7 +1644,7 @@
                 </div>
 
                 <div class="contact-info">
-                    <div class="contact-info-card">
+                    <div class="contact-info-card anim-hidden" data-anim>
                         <h3>📍 Visit Us</h3>
                         <div class="info-item">
                             <span class="info-icon">📍</span>
@@ -1551,7 +1664,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-info-card">
+                    <div class="contact-info-card anim-hidden" data-anim>
                         <h3>🕐 Opening Hours</h3>
                         <div class="hours-grid">
                             <span class="day">Monday &ndash; Friday</span>
@@ -1565,7 +1678,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-map">
+                    <div class="contact-map anim-hidden" data-anim>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d172.5!3d-43.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMwJzAwLjAiUyAxNzLCsDMwJzAwLjAiRQ!5e0!3m2!1sen!2snz!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Avonhead Family Health Centre location on Google Maps"></iframe>
                     </div>
                 </div>
@@ -1655,7 +1768,7 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
 
         // ===== SMOOTH SCROLL FOR NAV LINKS =====
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -1806,7 +1919,132 @@
             dateInput.setAttribute('min', today);
         }
 
-        console.log('Avonhead Family Health Centre website loaded successfully.');
+        // ============================================================
+        // ===== INTERSECTION OBSERVER — SCROLL-TRIGGERED ANIMATIONS =====
+        // ============================================================
+        (function() {
+            'use strict';
+
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+
+            const animElements = document.querySelectorAll('[data-anim]');
+
+            if (!animElements.length) return;
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const siblings = el.parentElement.querySelectorAll(':scope > [data-anim]');
+                        const index = Array.prototype.indexOf.call(siblings, el);
+
+                        // Apply stagger delay (100ms per item, max 600ms)
+                        const delay = Math.min(index * 100, 600);
+
+                        // Use requestAnimationFrame to batch style changes
+                        requestAnimationFrame(function() {
+                            el.style.animationDelay = delay + 'ms';
+                            el.classList.remove('anim-hidden');
+                            el.classList.add('anim-visible');
+                        });
+
+                        observer.unobserve(el);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            animElements.forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+
+        // ============================================================
+        // ===== COUNTER ANIMATION — HERO STATISTICS =====
+        // ============================================================
+        (function() {
+            'use strict';
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const counters = document.querySelectorAll('#heroStats .number');
+            if (!counters.length) return;
+
+            let countersAnimated = false;
+
+            function animateCounters() {
+                if (countersAnimated) return;
+                countersAnimated = true;
+
+                counters.forEach(function(counter) {
+                    const target = parseInt(counter.getAttribute('data-target'), 10);
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const prefix = counter.getAttribute('data-prefix') || '';
+                    const duration = 1500; // ms
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+
+                        // Ease-out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const currentValue = Math.round(eased * target);
+
+                        if (prefix) {
+                            counter.textContent = prefix + currentValue + suffix;
+                        } else {
+                            counter.textContent = currentValue + suffix;
+                        }
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            // Final value
+                            if (prefix) {
+                                counter.textContent = prefix + target + suffix;
+                            } else {
+                                counter.textContent = target + suffix;
+                            }
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                });
+            }
+
+            // If reduced motion, just set final values immediately
+            if (prefersReducedMotion) {
+                counters.forEach(function(counter) {
+                    const target = counter.getAttribute('data-target');
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    const prefix = counter.getAttribute('data-prefix') || '';
+                    counter.textContent = prefix + target + suffix;
+                });
+                return;
+            }
+
+            // Use IntersectionObserver to trigger counter animation when hero is visible
+            const heroStats = document.getElementById('heroStats');
+            if (heroStats) {
+                const counterObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            counterObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                counterObserver.observe(heroStats);
+            }
+        })();
+
+        console.log('Avonhead Family Health Centre — animations enabled.');
     </script>
 </body>
 </html>
