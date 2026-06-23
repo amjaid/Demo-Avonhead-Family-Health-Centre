@@ -1,177 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avonhead Family Health Centre | Caring for Christchurch Families</title>
-<meta name="description" content="Avonhead Family Health Centre - Caring for Christchurch families since 2010. Book an appointment with our experienced GPs today.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<style>
-/* critical */
-:root{--primary:#0056A7;--primary-dark:#003F7A;--secondary:#00A3E0;--secondary-light:#E6F7FF;--accent:#F8F9FA;--text:#333333;--text-light:#666666;--white:#FFFFFF;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-hover:0 8px 30px rgba(0,0,0,0.12);--radius:12px;--radius-sm:8px;--transition:0.3s ease;--font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max-width:1200px;--nav-height:70px;--anim-duration-fast:0.3s;--anim-duration-normal:0.5s;--anim-duration-slow:0.8s;--anim-easing:cubic-bezier(0.25,0.46,0.45,0.94);--anim-easing-bounce:cubic-bezier(0.34,1.56,0.64,1)}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height)}
-body{font-family:var(--font);color:var(--text);background:var(--accent);line-height:1.7;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
-.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-.section{padding:80px 0}
-.section-title{font-size:2rem;font-weight:700;color:var(--primary);text-align:center;margin-bottom:12px}
-.section-subtitle{text-align:center;color:var(--text-light);font-size:1.1rem;max-width:600px;margin:0 auto 50px}
-.btn{display:inline-block;padding:14px 32px;border-radius:50px;font-family:var(--font);font-size:1rem;font-weight:600;cursor:pointer;border:none;transition:var(--transition);text-align:center}
-.btn-primary{background:var(--primary);color:var(--white)}
-.btn-primary:hover,.btn-primary:focus{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,86,167,0.35)}
-.btn-secondary{background:var(--secondary);color:var(--white)}
-.btn-secondary:hover,.btn-secondary:focus{background:#0088c0;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,163,224,0.35)}
-.btn-outline{background:transparent;color:var(--white);border:2px solid var(--white)}
-.btn-outline:hover,.btn-outline:focus{background:var(--white);color:var(--primary)}
-.navbar{position:fixed;top:0;left:0;right:0;height:var(--nav-height);background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.06);transition:var(--transition)}
-.navbar.scrolled{box-shadow:0 4px 20px rgba(0,0,0,0.1)}
-.navbar .container{display:flex;align-items:center;justify-content:space-between;height:100%}
-.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.2rem;color:var(--primary)}
-.nav-logo .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.2rem;font-weight:700}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:0.9rem;font-weight:500;color:var(--text);transition:var(--transition);position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:var(--transition)}
-.nav-links a:hover::after,.nav-links a:focus::after{width:100%}
-.nav-links a:hover,.nav-links a:focus{color:var(--primary)}
-.nav-actions{display:flex;align-items:center;gap:16px}
-.nav-phone{display:none;font-weight:600;color:var(--primary);font-size:0.9rem;white-space:nowrap}
-.nav-phone:hover{color:var(--secondary)}
-.nav-whatsapp{display:none;font-size:1.3rem;color:#25D366;transition:var(--transition)}
-.nav-whatsapp:hover{transform:scale(1.1)}
-.nav-btn{padding:10px 22px;font-size:0.85rem}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.hamburger span{width:26px;height:3px;background:var(--primary);border-radius:3px;transition:var(--transition)}
-.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,6px)}
-.hamburger.active span:nth-child(2){opacity:0}
-.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px)}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0056A7 0%,#003F7A 40%,#00A3E0 100%);position:relative;overflow:hidden;padding-top:var(--nav-height)}
-.hero::before{content:'';position:absolute;top:-50%;right:-30%;width:80%;height:80%;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 70%);border-radius:50%}
-.hero::after{content:'';position:absolute;bottom:-30%;left:-20%;width:60%;height:60%;background:radial-gradient(circle,rgba(0,163,224,0.15) 0%,transparent 70%);border-radius:50%}
-.hero-content{text-align:center;color:var(--white);position:relative;z-index:1;padding:40px 20px;max-width:800px}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.15);backdrop-filter:blur(4px);padding:8px 20px;border-radius:50px;font-size:0.85rem;font-weight:500;margin-bottom:24px;letter-spacing:0.5px}
-.hero h1{font-size:2.8rem;font-weight:800;line-height:1.15;margin-bottom:16px}
-.hero h1 span{color:var(--secondary)}
-.hero p{font-size:1.2rem;opacity:0.9;margin-bottom:36px;line-height:1.6}
-.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:50px;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat .number{font-size:2rem;font-weight:800;display:block}
-.hero-stat .label{font-size:0.85rem;opacity:0.8}
-</style>
-<style media="print" onload="this.media='all'">
-/* non-critical */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes scaleIn{from{opacity:0;transform:scale(0.92)}to{opacity:1;transform:scale(1)}}
-@keyframes countUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,163,224,0.4)}50%{box-shadow:0 0 0 8px rgba(0,163,224,0)}}
-.anim-hidden{opacity:0;transform:translateY(24px);will-change:transform,opacity}
-.anim-hidden-scale{opacity:0;transform:scale(0.92);will-change:transform,opacity}
-.anim-visible{animation:fadeInUp var(--anim-duration-normal) var(--anim-easing) forwards}
-.anim-visible-scale{animation:scaleIn var(--anim-duration-normal) var(--anim-easing) forwards}
-.anim-visible-fade{animation:fadeIn var(--anim-duration-normal) var(--anim-easing) forwards}
-.stagger-1{animation-delay:0.1s}.stagger-2{animation-delay:0.2s}.stagger-3{animation-delay:0.3s}.stagger-4{animation-delay:0.4s}.stagger-5{animation-delay:0.5s}.stagger-6{animation-delay:0.6s}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}.anim-hidden,.anim-hidden-scale{opacity:1;transform:none}html{scroll-behavior:auto}}
-.about{background:var(--white)}.about-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}.about-image{width:100%;height:300px;background:linear-gradient(135deg,var(--secondary-light),var(--secondary));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--primary)}.about-text h3{font-size:1.5rem;color:var(--primary);margin-bottom:16px}.about-text p{color:var(--text-light);margin-bottom:16px;font-size:1.05rem}.about-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.about-features li{display:flex;align-items:center;gap:8px;font-size:0.95rem;color:var(--text)}.about-features li::before{content:'✓';color:var(--secondary);font-weight:700;font-size:1.1rem}
-.why-choose{background:var(--secondary-light)}.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.why-card{background:var(--white);padding:28px 24px;border-radius:var(--radius);box-shadow:var(--shadow);transition:var(--transition);text-align:center}.why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}.why-card .icon{font-size:2.2rem;margin-bottom:12px}.why-card h4{font-size:1.05rem;color:var(--primary);margin-bottom:8px}.why-card p{font-size:0.9rem;color:var(--text-light)}
-.services{background:var(--white)}.services-grid{display:grid;grid-template-columns:1fr;gap:24px}.service-card{background:var(--accent);padding:32px 24px;border-radius:var(--radius);text-align:center;transition:var(--transition);border:1px solid transparent}.service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:var(--secondary)}.service-card .icon{width:64px;height:64px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.6rem;color:var(--white)}.service-card h4{font-size:1.1rem;color:var(--primary);margin-bottom:8px}.service-card p{font-size:0.9rem;color:var(--text-light)}
-.team{background:var(--accent)}.team-grid{display:grid;grid-template-columns:1fr;gap:30px}.team-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);text-align:center}.team-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}.team-img{width:120px;height:120px;border-radius:50%;margin:32px auto 16px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:var(--white)}.team-img.dr1{background:linear-gradient(135deg,#667eea,#764ba2)}.team-img.dr2{background:linear-gradient(135deg,#f093fb,#f5576c)}.team-img.dr3{background:linear-gradient(135deg,#4facfe,#00f2fe)}.team-card h4{font-size:1.15rem;color:var(--primary);margin-bottom:4px}.team-card .specialty{font-size:0.85rem;color:var(--secondary);font-weight:600;margin-bottom:12px}.team-card p{font-size:0.9rem;color:var(--text-light);padding:0 24px 32px}
-.testimonials{background:var(--white)}.testimonials-grid{display:grid;grid-template-columns:1fr;gap:24px}.testimonial-card{background:var(--accent);padding:32px 28px;border-radius:var(--radius);box-shadow:var(--shadow);transition:var(--transition);position:relative}.testimonial-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}.testimonial-card::before{content:'\201C';position:absolute;top:12px;left:20px;font-size:4rem;color:var(--secondary);opacity:0.2;font-family:Georgia,serif;line-height:1}.testimonial-stars{color:#FFB800;font-size:1.1rem;margin-bottom:12px;letter-spacing:2px}.testimonial-card blockquote{font-size:0.95rem;color:var(--text);font-style:italic;margin-bottom:16px;line-height:1.6}.testimonial-author{display:flex;align-items:center;gap:12px}.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:0.9rem}.testimonial-author .name{font-weight:600;font-size:0.9rem}.testimonial-author .detail{font-size:0.8rem;color:var(--text-light)}
-.contact{background:var(--accent)}.contact-grid{display:grid;grid-template-columns:1fr;gap:40px}.contact-form{background:var(--white);padding:36px 28px;border-radius:var(--radius);box-shadow:var(--shadow)}.contact-form h3{font-size:1.3rem;color:var(--primary);margin-bottom:24px}.form-row{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:16px}.form-group{display:flex;flex-direction:column}.form-group label{font-size:0.85rem;font-weight:600;color:var(--text);margin-bottom:6px}.form-group label .required{color:#e74c3c}.form-group input,.form-group select,.form-group textarea{padding:12px 16px;border:2px solid #e0e0e0;border-radius:var(--radius-sm);font-family:var(--font);font-size:0.95rem;transition:var(--transition);background:var(--white);color:var(--text)}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,86,167,0.1)}.form-group input.error,.form-group select.error,.form-group textarea.error{border-color:#e74c3c}.form-group .error-msg{font-size:0.8rem;color:#e74c3c;margin-top:4px;display:none}.form-group .error-msg.visible{display:block}.form-group textarea{resize:vertical;min-height:100px}.form-submit{margin-top:8px;width:100%}.contact-info{display:flex;flex-direction:column;gap:24px}.contact-info-card{background:var(--white);padding:28px 24px;border-radius:var(--radius);box-shadow:var(--shadow)}.contact-info-card h3{font-size:1.1rem;color:var(--primary);margin-bottom:16px}.contact-info-card .info-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px}.contact-info-card .info-item:last-child{margin-bottom:0}.contact-info-card .info-icon{font-size:1.2rem;min-width:28px;color:var(--secondary)}.contact-info-card .info-text{font-size:0.9rem;color:var(--text-light)}.contact-info-card .info-text strong{color:var(--text)}.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:0.9rem}.hours-grid .day{color:var(--text);font-weight:500}.hours-grid .time{color:var(--text-light);text-align:right}.contact-map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}.contact-map iframe{width:100%;height:250px;border:none;display:block}
-.footer{background:var(--primary-dark);color:var(--white);padding:50px 0 0}.footer-grid{display:grid;grid-template-columns:1fr;gap:32px}.footer-col h4{font-size:1.1rem;margin-bottom:16px;color:var(--secondary)}.footer-col p,.footer-col a{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.8}.footer-col a:hover{color:var(--secondary)}.footer-social{display:flex;gap:16px;margin-top:12px}.footer-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:var(--transition)}.footer-social a:hover{background:var(--secondary);transform:translateY(-3px)}.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}.footer-bottom p{font-size:0.85rem;color:rgba(255,255,255,0.6)}.footer-bottom .credit{font-size:0.8rem;color:rgba(255,255,255,0.4)}.footer-bottom .credit a{color:var(--secondary);font-weight:500}.footer-bottom .credit a:hover{text-decoration:underline}
-.floating-book{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;padding:14px 32px;border-radius:50px;background:var(--primary);color:var(--white);font-family:var(--font);font-size:1rem;font-weight:700;border:none;cursor:pointer;box-shadow:0 6px 25px rgba(0,86,167,0.4);transition:var(--transition);white-space:nowrap}.floating-book:hover{background:var(--primary-dark);transform:translateX(-50%) translateY(-2px);box-shadow:0 8px 30px rgba(0,86,167,0.5)}
-.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);z-index:2000;align-items:center;justify-content:center;padding:20px}.modal-overlay.active{display:flex}.modal{background:var(--white);border-radius:var(--radius);padding:40px 32px;max-width:480px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.2);animation:modalIn 0.3s ease;position:relative}@keyframes modalIn{from{opacity:0;transform:scale(0.9) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}.modal .modal-icon{font-size:3.5rem;margin-bottom:16px}.modal h3{font-size:1.5rem;color:var(--primary);margin-bottom:12px}.modal p{color:var(--text-light);margin-bottom:24px;line-height:1.6}.modal .btn{min-width:160px}.modal-close{position:absolute;top:12px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-light);transition:var(--transition);padding:4px;line-height:1}.modal-close:hover{color:var(--text);transform:rotate(90deg)}
-@media(min-width:768px){.section{padding:100px 0}.section-title{font-size:2.4rem}.hero h1{font-size:3.5rem}.about-grid{grid-template-columns:1fr 1fr}.about-image{height:100%;min-height:350px}.why-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(3,1fr)}.testimonials-grid{grid-template-columns:repeat(3,1fr)}.contact-grid{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:repeat(3,1fr)}.footer-bottom{flex-direction:row;justify-content:space-between}.nav-phone{display:inline}.nav-whatsapp{display:inline}}
-@media(min-width:1024px){.hero h1{font-size:4rem}.services-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:repeat(5,1fr)}.floating-book{display:none!important}}
-@media(max-width:767px){.hamburger{display:flex}.nav-links{position:fixed;top:var(--nav-height);left:0;right:0;background:var(--white);flex-direction:column;padding:24px 20px;gap:16px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transform:translateY(-100%);opacity:0;pointer-events:none;transition:var(--transition)}.nav-links.active{transform:translateY(0);opacity:1;pointer-events:all}.nav-links a{font-size:1rem;padding:8px 0}.nav-btn{display:none}.floating-book{display:block}.hero h1{font-size:2rem}.hero p{font-size:1rem}.hero-stats{gap:20px}.hero-stat .number{font-size:1.5rem}.about-features{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr 1fr}.hours-grid{grid-template-columns:1fr 1fr}.contact-form{padding:24px 18px}}
-@media(max-width:400px){.why-grid{grid-template-columns:1fr}.hero h1{font-size:1.7rem}.hero-buttons .btn{width:100%}}
-</style>
-<noscript><link rel="stylesheet" href="data:text/css,/* non-critical fallback */"></noscript>
-</head>
-<body>
-<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-<div class="container">
-<a href="#home" class="nav-logo"><span class="logo-icon">+</span>Avonhead Health</a>
-<ul class="nav-links" id="navLinks">
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#team">Our Team</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-<div class="nav-actions">
-<a href="tel:+6431234567" class="nav-phone" aria-label="Call us">📞 (03) 123 4567</a>
-<a href="https://wa.me/64271234567" class="nav-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
-<a href="#contact" class="btn btn-primary nav-btn">Book Now</a>
-<button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div>
-</div>
-</nav>
-<section class="hero" id="home">
-<div class="hero-content">
-<span class="hero-badge anim-hero" style="animation:scaleIn 0.6s ease-out 0.1s both">🏥 Est. 2010 &bull; Christchurch, NZ</span>
-<h1 class="anim-hero" style="animation:fadeInUp 0.8s ease-out 0.3s both">Avonhead Family<br><span>Health Centre</span></h1>
-<p class="anim-hero" style="animation:fadeInUp 0.8s ease-out 0.5s both">Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
-<div class="hero-buttons anim-hero" style="animation:fadeInUp 0.8s ease-out 0.7s both">
-<a href="#contact" class="btn btn-secondary">📅 Book an Appointment</a>
-<a href="#about" class="btn btn-outline">Learn More</a>
-</div>
-<div class="hero-stats" id="heroStats">
-<div class="hero-stat"><span class="number" data-target="14" data-suffix="+">0</span><span class="label">Years of Service</span></div>
-<div class="hero-stat"><span class="number" data-target="12" data-suffix="K+">0</span><span class="label">Patients Cared For</span></div>
-<div class="hero-stat"><span class="number" data-target="49" data-suffix="" data-prefix="4.">0</span><span class="label">Patient Rating</span></div>
-</div>
-</div>
-</section>
-<section class="about section" id="about">
-<div class="container">
-<div class="anim-hidden" data-anim><h2 class="section-title">About Our Clinic</h2><p class="section-subtitle">Providing compassionate, comprehensive healthcare for the whole family in a warm and welcoming environment.</p></div>
-<div class="about-grid">
-<div class="about-image anim-hidden" data-anim>🏥</div>
-<div class="about-text anim-hidden" data-anim>
-<h3>Your Health, Our Priority</h3>
-<p>At Avonhead Family Health Centre, we believe in healthcare that puts people first. Our dedicated team of experienced general practitioners and support staff work together to provide personalised medical care for every member of your family &mdash; from infants to seniors.</p>
-<p>Conveniently located in the heart of Avonhead, Christchurch, our modern facility is equipped with the latest medical technology to ensure accurate diagnoses and effective treatments. We are proud to be an accredited General Practice meeting the highest standards of care.</p>
-<ul class="about-features"><li>Patient-centred care approach</li><li>Modern, well-equipped facilities</li><li>Experienced & friendly team</li><li>ACC registered providers</li></ul>
-</div>
-</div>
-</div>
-</section>
-<section class="why-choose section" id="why-choose">
-<div class="container">
-<div class="anim-hidden" data-anim><h2 class="section-title">Why Choose Avonhead Health?</h2><p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p></div>
-<div class="why-grid">
-<div class="why-card anim-hidden" data-anim><div class="icon">👨‍⚕️</div><h4>Experienced GPs</h4><p>Over 20 years of combined experience in family medicine.</p></div>
-<div class="why-card anim-hidden" data-anim><div class="icon">📅</div><h4>Same-Day Appointments</h4><p>Urgent care when you need it &mdash; no long waiting lists.</p></div>
-<div class="why-card anim-hidden" data-anim><div class="icon">🩺</div><h4>ACC Registered</h4><p>Fully accredited for accident and injury care.</p></div>
-<div class="why-card anim-hidden" data-anim><div class="icon">❤️</div><h4>Patient-Centred Care</h4><p>Your health journey, guided by compassion and respect.</p></div>
-<div class="why-card anim-hidden" data-anim><div class="icon">🏛️</div><h4>Modern Facilities</h4><p>Comfortable, clean, and equipped with the latest technology.</p></div>
-</div>
-</div>
-</section>
-<section class="services section" id="services">
-<div class="container">
-<div class="anim-hidden" data-anim><h2 class="section-title">Our Services</h2><p class="section-subtitle">Comprehensive healthcare services tailored to every stage of life.</p></div>
-<div class="services-grid">
-<div class="service-card anim-hidden" data-anim><div class="icon">❤️</div><h4>General Health Check</h4><p>Comprehensive health assessments, blood tests, and preventive screenings for all ages.</p></div>
-<div class="service-card anim-hidden" data-anim><div class="icon">👩</div><h4>Women's Health</h4><p>Cervical screening, contraceptive advice, menopause management, and pregnancy care.</p></div>
-<div class="service-card anim-hidden" data-anim><div class="icon">👶</div><h4>Children's Health</h4><p>Well-child checks, immunisations, developmental assessments, and acute care.</p></div>
-<div class="service-card anim-hidden" data-anim><div class="icon">🔬</div><h4>Minor Surgery</h4><p>Skin lesion removal, wound management, and minor surgical procedures in-clinic.</p></div>
-<div class="service-card anim-hidden" data-anim><div class="icon">☀️</div><h4>Skin Checks</h4><p>Full skin examinations, mole mapping, and early detection of skin cancers.</p></div>
-<div class="service-card anim-hidden" data-anim><div class="icon">✈️</div><h4>Travel Medicine</h4><p>Travel vaccinations, health advice, and prescriptions for your overseas trips.</p></div>
-</div>
-</div>
-</section>
-<section class="team section" id="team">
-<div class="container">
-<div class="anim-hidden" data-anim><h2 class="section-title">Meet Our Team</h2><p class="section-subtitle">Dedicated healthcare professionals committed to your wellbeing.</p></div>
-<div class="team-grid">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avonhead Family Health Centre | Caring for Christchurch Families</title>
+    <meta name="description" content="Avonhead Family Health Centre - Caring for Christchurch families since 2010. Book an appointment with our experienced GPs today.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+    <style>
+        :root {
+            --primary: #0056A7;
+            --primary-dark: #003F7A;
+            --secondary: #00A3E0;
+            --secondary-light: #E6F7FF;
+            --accent: #F8F9FA;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.3s ease;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --max-width: 1200px;
+            --nav-height: 70px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            font-family: var(--font);
+            color: var(--text);
+            background: var(--accent);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
         .section {
             padding: 80px 0;
         }
@@ -192,6 +93,7 @@ ul{list-style:none}
             margin: 0 auto 50px;
         }
 
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -201,42 +103,37 @@ ul{list-style:none}
             font-weight: 600;
             cursor: pointer;
             border: none;
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
             text-align: center;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .btn-primary {
             background: var(--primary);
             color: var(--white);
         }
-
         .btn-primary:hover,
-        .btn-primary:focus {
+        .btn-primary:focus-visible {
             background: var(--primary-dark);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 86, 167, 0.35);
         }
-
         .btn-secondary {
             background: var(--secondary);
             color: var(--white);
         }
-
         .btn-secondary:hover,
-        .btn-secondary:focus {
+        .btn-secondary:focus-visible {
             background: #0088c0;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 163, 224, 0.35);
         }
-
         .btn-outline {
             background: transparent;
             color: var(--white);
             border: 2px solid var(--white);
         }
-
         .btn-outline:hover,
-        .btn-outline:focus {
+        .btn-outline:focus-visible {
             background: var(--white);
             color: var(--primary);
         }
@@ -253,20 +150,18 @@ ul{list-style:none}
             -webkit-backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-            transition: var(--transition);
+            transition: box-shadow 0.3s ease;
+            contain: layout style;
         }
-
         .navbar.scrolled {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-
         .navbar .container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 100%;
         }
-
         .nav-logo {
             display: flex;
             align-items: center;
@@ -274,8 +169,8 @@ ul{list-style:none}
             font-weight: 800;
             font-size: 1.2rem;
             color: var(--primary);
+            flex-shrink: 0;
         }
-
         .nav-logo .logo-icon {
             width: 40px;
             height: 40px;
@@ -287,22 +182,21 @@ ul{list-style:none}
             color: var(--white);
             font-size: 1.2rem;
             font-weight: 700;
+            flex-shrink: 0;
         }
-
         .nav-links {
             display: flex;
             align-items: center;
             gap: 28px;
         }
-
         .nav-links a {
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text);
-            transition: var(--transition);
+            transition: color 0.3s ease;
             position: relative;
+            white-space: nowrap;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -311,25 +205,22 @@ ul{list-style:none}
             width: 0;
             height: 2px;
             background: var(--primary);
-            transition: var(--transition);
+            transition: width 0.3s ease;
         }
-
         .nav-links a:hover::after,
-        .nav-links a:focus::after {
+        .nav-links a:focus-visible::after {
             width: 100%;
         }
-
         .nav-links a:hover,
-        .nav-links a:focus {
+        .nav-links a:focus-visible {
             color: var(--primary);
         }
-
         .nav-actions {
             display: flex;
             align-items: center;
             gap: 16px;
+            flex-shrink: 0;
         }
-
         .nav-phone {
             display: none;
             font-weight: 600;
@@ -337,22 +228,18 @@ ul{list-style:none}
             font-size: 0.9rem;
             white-space: nowrap;
         }
-
         .nav-phone:hover {
             color: var(--secondary);
         }
-
         .nav-whatsapp {
             display: none;
             font-size: 1.3rem;
             color: #25D366;
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
-
         .nav-whatsapp:hover {
             transform: scale(1.1);
         }
-
         .nav-btn {
             padding: 10px 22px;
             font-size: 0.85rem;
@@ -367,24 +254,22 @@ ul{list-style:none}
             padding: 4px;
             background: none;
             border: none;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .hamburger span {
             width: 26px;
             height: 3px;
             background: var(--primary);
             border-radius: 3px;
-            transition: var(--transition);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: block;
         }
-
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 6px);
         }
-
         .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
-
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -6px);
         }
@@ -399,8 +284,8 @@ ul{list-style:none}
             position: relative;
             overflow: hidden;
             padding-top: var(--nav-height);
+            contain: layout style paint;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -410,8 +295,8 @@ ul{list-style:none}
             height: 80%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
             border-radius: 50%;
+            pointer-events: none;
         }
-
         .hero::after {
             content: '';
             position: absolute;
@@ -421,8 +306,8 @@ ul{list-style:none}
             height: 60%;
             background: radial-gradient(circle, rgba(0, 163, 224, 0.15) 0%, transparent 70%);
             border-radius: 50%;
+            pointer-events: none;
         }
-
         .hero-content {
             text-align: center;
             color: var(--white);
@@ -431,11 +316,11 @@ ul{list-style:none}
             padding: 40px 20px;
             max-width: 800px;
         }
-
         .hero-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             padding: 8px 20px;
             border-radius: 50px;
             font-size: 0.85rem;
@@ -443,32 +328,27 @@ ul{list-style:none}
             margin-bottom: 24px;
             letter-spacing: 0.5px;
         }
-
         .hero h1 {
             font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 16px;
         }
-
         .hero h1 span {
             color: var(--secondary);
         }
-
         .hero p {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 36px;
             line-height: 1.6;
         }
-
         .hero-buttons {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
-
         .hero-stats {
             display: flex;
             justify-content: center;
@@ -476,34 +356,97 @@ ul{list-style:none}
             margin-top: 50px;
             flex-wrap: wrap;
         }
-
         .hero-stat {
             text-align: center;
         }
-
         .hero-stat .number {
             font-size: 2rem;
             font-weight: 800;
             display: block;
         }
-
         .hero-stat .label {
             font-size: 0.85rem;
             opacity: 0.8;
         }
 
+        /* ===== ANIMATIONS (Optimized) ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.94, 0.94, 1);
+            }
+            to {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .anim-hidden {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+        }
+        .anim-hidden-scale {
+            opacity: 0;
+            transform: scale3d(0.94, 0.94, 1);
+        }
+        .anim-visible {
+            animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .anim-visible-scale {
+            animation: scaleIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .anim-visible-fade {
+            animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .anim-hidden,
+            .anim-hidden-scale {
+                opacity: 1;
+                transform: none;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
         /* ===== ABOUT ===== */
         .about {
             background: var(--white);
+            contain: layout style;
         }
-
         .about-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
             align-items: center;
         }
-
         .about-image {
             width: 100%;
             height: 300px;
@@ -515,26 +458,22 @@ ul{list-style:none}
             font-size: 4rem;
             color: var(--primary);
         }
-
         .about-text h3 {
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 16px;
         }
-
         .about-text p {
             color: var(--text-light);
             margin-bottom: 16px;
             font-size: 1.05rem;
         }
-
         .about-features {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: 20px;
         }
-
         .about-features li {
             display: flex;
             align-items: center;
@@ -542,50 +481,45 @@ ul{list-style:none}
             font-size: 0.95rem;
             color: var(--text);
         }
-
         .about-features li::before {
             content: '✓';
             color: var(--secondary);
             font-weight: 700;
             font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         /* ===== WHY CHOOSE US ===== */
         .why-choose {
             background: var(--secondary-light);
+            contain: layout style;
         }
-
         .why-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
         }
-
         .why-card {
             background: var(--white);
             padding: 28px 24px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
-
         .why-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
         }
-
         .why-card .icon {
             font-size: 2.2rem;
             margin-bottom: 12px;
         }
-
         .why-card h4 {
             font-size: 1.05rem;
             color: var(--primary);
             margin-bottom: 8px;
         }
-
         .why-card p {
             font-size: 0.9rem;
             color: var(--text-light);
@@ -594,29 +528,26 @@ ul{list-style:none}
         /* ===== SERVICES ===== */
         .services {
             background: var(--white);
+            contain: layout style;
         }
-
         .services-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
-
         .service-card {
             background: var(--accent);
             padding: 32px 24px;
             border-radius: var(--radius);
             text-align: center;
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             border: 1px solid transparent;
         }
-
         .service-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
             border-color: var(--secondary);
         }
-
         .service-card .icon {
             width: 64px;
             height: 64px;
@@ -629,13 +560,11 @@ ul{list-style:none}
             font-size: 1.6rem;
             color: var(--white);
         }
-
         .service-card h4 {
             font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 8px;
         }
-
         .service-card p {
             font-size: 0.9rem;
             color: var(--text-light);
@@ -644,28 +573,25 @@ ul{list-style:none}
         /* ===== TEAM ===== */
         .team {
             background: var(--accent);
+            contain: layout style;
         }
-
         .team-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
         }
-
         .team-card {
             background: var(--white);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
-
         .team-card:hover {
             transform: translateY(-6px);
             box-shadow: var(--shadow-hover);
         }
-
         .team-img {
             width: 120px;
             height: 120px;
@@ -677,7 +603,6 @@ ul{list-style:none}
             font-size: 3rem;
             color: var(--white);
         }
-
         .team-img.dr1 {
             background: linear-gradient(135deg, #667eea, #764ba2);
         }
@@ -687,20 +612,17 @@ ul{list-style:none}
         .team-img.dr3 {
             background: linear-gradient(135deg, #4facfe, #00f2fe);
         }
-
         .team-card h4 {
             font-size: 1.15rem;
             color: var(--primary);
             margin-bottom: 4px;
         }
-
         .team-card .specialty {
             font-size: 0.85rem;
             color: var(--secondary);
             font-weight: 600;
             margin-bottom: 12px;
         }
-
         .team-card p {
             font-size: 0.9rem;
             color: var(--text-light);
@@ -710,28 +632,25 @@ ul{list-style:none}
         /* ===== TESTIMONIALS ===== */
         .testimonials {
             background: var(--white);
+            contain: layout style;
         }
-
         .testimonials-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 24px;
         }
-
         .testimonial-card {
             background: var(--accent);
             padding: 32px 28px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
-
         .testimonial-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
         }
-
         .testimonial-card::before {
             content: '\201C';
             position: absolute;
@@ -742,15 +661,14 @@ ul{list-style:none}
             opacity: 0.2;
             font-family: Georgia, serif;
             line-height: 1;
+            pointer-events: none;
         }
-
         .testimonial-stars {
             color: #FFB800;
             font-size: 1.1rem;
             margin-bottom: 12px;
             letter-spacing: 2px;
         }
-
         .testimonial-card blockquote {
             font-size: 0.95rem;
             color: var(--text);
@@ -758,13 +676,11 @@ ul{list-style:none}
             margin-bottom: 16px;
             line-height: 1.6;
         }
-
         .testimonial-author {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-
         .testimonial-avatar {
             width: 44px;
             height: 44px;
@@ -776,13 +692,12 @@ ul{list-style:none}
             color: var(--white);
             font-weight: 700;
             font-size: 0.9rem;
+            flex-shrink: 0;
         }
-
         .testimonial-author .name {
             font-weight: 600;
             font-size: 0.9rem;
         }
-
         .testimonial-author .detail {
             font-size: 0.8rem;
             color: var(--text-light);
@@ -791,50 +706,43 @@ ul{list-style:none}
         /* ===== CONTACT / BOOKING ===== */
         .contact {
             background: var(--accent);
+            contain: layout style;
         }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 40px;
         }
-
         .contact-form {
             background: var(--white);
             padding: 36px 28px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-
         .contact-form h3 {
             font-size: 1.3rem;
             color: var(--primary);
             margin-bottom: 24px;
         }
-
         .form-row {
             display: grid;
             grid-template-columns: 1fr;
             gap: 16px;
             margin-bottom: 16px;
         }
-
         .form-group {
             display: flex;
             flex-direction: column;
         }
-
         .form-group label {
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--text);
             margin-bottom: 6px;
         }
-
         .form-group label .required {
             color: #e74c3c;
         }
-
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -843,11 +751,10 @@ ul{list-style:none}
             border-radius: var(--radius-sm);
             font-family: var(--font);
             font-size: 0.95rem;
-            transition: var(--transition);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
             background: var(--white);
             color: var(--text);
         }
-
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -855,105 +762,91 @@ ul{list-style:none}
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(0, 86, 167, 0.1);
         }
-
         .form-group input.error,
         .form-group select.error,
         .form-group textarea.error {
             border-color: #e74c3c;
         }
-
         .form-group .error-msg {
             font-size: 0.8rem;
             color: #e74c3c;
             margin-top: 4px;
             display: none;
         }
-
         .form-group .error-msg.visible {
             display: block;
         }
-
         .form-group textarea {
             resize: vertical;
             min-height: 100px;
         }
-
         .form-submit {
             margin-top: 8px;
             width: 100%;
         }
-
         .contact-info {
             display: flex;
             flex-direction: column;
             gap: 24px;
         }
-
         .contact-info-card {
             background: var(--white);
             padding: 28px 24px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-
         .contact-info-card h3 {
             font-size: 1.1rem;
             color: var(--primary);
             margin-bottom: 16px;
         }
-
         .contact-info-card .info-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
             margin-bottom: 14px;
         }
-
         .contact-info-card .info-item:last-child {
             margin-bottom: 0;
         }
-
         .contact-info-card .info-icon {
             font-size: 1.2rem;
             min-width: 28px;
             color: var(--secondary);
+            flex-shrink: 0;
         }
-
         .contact-info-card .info-text {
             font-size: 0.9rem;
             color: var(--text-light);
+            word-break: break-word;
         }
-
         .contact-info-card .info-text strong {
             color: var(--text);
         }
-
         .hours-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6px 16px;
             font-size: 0.9rem;
         }
-
         .hours-grid .day {
             color: var(--text);
             font-weight: 500;
         }
-
         .hours-grid .time {
             color: var(--text-light);
             text-align: right;
         }
-
         .contact-map {
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            aspect-ratio: 16/9;
+            min-height: 250px;
         }
-
         .contact-map iframe {
             width: 100%;
-            height: 250px;
+            height: 100%;
             border: none;
             display: block;
         }
@@ -963,37 +856,32 @@ ul{list-style:none}
             background: var(--primary-dark);
             color: var(--white);
             padding: 50px 0 0;
+            contain: layout style;
         }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 32px;
         }
-
         .footer-col h4 {
             font-size: 1.1rem;
             margin-bottom: 16px;
             color: var(--secondary);
         }
-
         .footer-col p,
         .footer-col a {
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.8;
         }
-
         .footer-col a:hover {
             color: var(--secondary);
         }
-
         .footer-social {
             display: flex;
             gap: 16px;
             margin-top: 12px;
         }
-
         .footer-social a {
             width: 40px;
             height: 40px;
@@ -1003,14 +891,12 @@ ul{list-style:none}
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            transition: var(--transition);
+            transition: background 0.3s ease, transform 0.3s ease;
         }
-
         .footer-social a:hover {
             background: var(--secondary);
             transform: translateY(-3px);
         }
-
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 20px 0;
@@ -1021,22 +907,18 @@ ul{list-style:none}
             gap: 8px;
             text-align: center;
         }
-
         .footer-bottom p {
             font-size: 0.85rem;
             color: rgba(255, 255, 255, 0.6);
         }
-
         .footer-bottom .credit {
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.4);
         }
-
         .footer-bottom .credit a {
             color: var(--secondary);
             font-weight: 500;
         }
-
         .footer-bottom .credit a:hover {
             text-decoration: underline;
         }
@@ -1059,10 +941,10 @@ ul{list-style:none}
             border: none;
             cursor: pointer;
             box-shadow: 0 6px 25px rgba(0, 86, 167, 0.4);
-            transition: var(--transition);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .floating-book:hover {
             background: var(--primary-dark);
             transform: translateX(-50%) translateY(-2px);
@@ -1079,16 +961,15 @@ ul{list-style:none}
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
-
         .modal-overlay.active {
             display: flex;
         }
-
         .modal {
             background: var(--white);
             border-radius: var(--radius);
@@ -1100,39 +981,33 @@ ul{list-style:none}
             animation: modalIn 0.3s ease;
             position: relative;
         }
-
         @keyframes modalIn {
             from {
                 opacity: 0;
-                transform: scale(0.9) translateY(20px);
+                transform: scale3d(0.9, 0.9, 1) translate3d(0, 20px, 0);
             }
             to {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
             }
         }
-
         .modal .modal-icon {
             font-size: 3.5rem;
             margin-bottom: 16px;
         }
-
         .modal h3 {
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 12px;
         }
-
         .modal p {
             color: var(--text-light);
             margin-bottom: 24px;
             line-height: 1.6;
         }
-
         .modal .btn {
             min-width: 160px;
         }
-
         .modal-close {
             position: absolute;
             top: 12px;
@@ -1142,106 +1017,92 @@ ul{list-style:none}
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-light);
-            transition: var(--transition);
+            transition: color 0.3s ease, transform 0.3s ease;
             padding: 4px;
             line-height: 1;
+            -webkit-tap-highlight-color: transparent;
         }
-
         .modal-close:hover {
             color: var(--text);
             transform: rotate(90deg);
         }
 
-        /* ===== RESPONSIVE - TABLET (768px+) ===== */
+        /* ============================================= */
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+        /* ============================================= */
+
+        /* Tablet: 768px+ */
         @media (min-width: 768px) {
             .section {
                 padding: 100px 0;
             }
-
             .section-title {
                 font-size: 2.4rem;
             }
-
             .hero h1 {
                 font-size: 3.5rem;
             }
-
             .about-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .about-image {
                 height: 100%;
                 min-height: 350px;
             }
-
             .why-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .team-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .testimonials-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .contact-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .form-row {
                 grid-template-columns: 1fr 1fr;
             }
-
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .footer-bottom {
                 flex-direction: row;
                 justify-content: space-between;
             }
-
             .nav-phone {
                 display: inline;
             }
-
             .nav-whatsapp {
                 display: inline;
             }
         }
 
-        /* ===== RESPONSIVE - DESKTOP (1024px+) ===== */
+        /* Desktop: 1024px+ */
         @media (min-width: 1024px) {
             .hero h1 {
                 font-size: 4rem;
             }
-
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-
             .why-grid {
                 grid-template-columns: repeat(5, 1fr);
             }
-
             .floating-book {
                 display: none !important;
             }
         }
 
-        /* ===== RESPONSIVE - MOBILE ONLY ===== */
+        /* Mobile only: max 767px */
         @media (max-width: 767px) {
             .hamburger {
                 display: flex;
             }
-
             .nav-links {
                 position: fixed;
                 top: var(--nav-height);
@@ -1252,73 +1113,64 @@ ul{list-style:none}
                 padding: 24px 20px;
                 gap: 16px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
+                transform: translateY(-110%);
                 opacity: 0;
                 pointer-events: none;
-                transition: var(--transition);
+                transition: transform 0.35s ease, opacity 0.35s ease;
             }
-
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: all;
             }
-
             .nav-links a {
                 font-size: 1rem;
                 padding: 8px 0;
             }
-
             .nav-btn {
                 display: none;
             }
-
             .floating-book {
                 display: block;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .hero p {
                 font-size: 1rem;
             }
-
             .hero-stats {
                 gap: 20px;
             }
-
             .hero-stat .number {
                 font-size: 1.5rem;
             }
-
             .about-features {
                 grid-template-columns: 1fr;
             }
-
             .why-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .hours-grid {
                 grid-template-columns: 1fr 1fr;
             }
-
             .contact-form {
                 padding: 24px 18px;
             }
+            .contact-map {
+                aspect-ratio: 4/3;
+                min-height: 200px;
+            }
         }
 
+        /* Small mobile: max 400px */
         @media (max-width: 400px) {
             .why-grid {
                 grid-template-columns: 1fr;
             }
-
             .hero h1 {
                 font-size: 1.7rem;
             }
-
             .hero-buttons .btn {
                 width: 100%;
             }
@@ -1334,7 +1186,6 @@ ul{list-style:none}
                 <span class="logo-icon">+</span>
                 Avonhead Health
             </a>
-
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1342,15 +1193,12 @@ ul{list-style:none}
                 <li><a href="#team">Our Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
             <div class="nav-actions">
                 <a href="tel:+6431234567" class="nav-phone" aria-label="Call us">📞 (03) 123 4567</a>
                 <a href="https://wa.me/64271234567" class="nav-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
                 <a href="#contact" class="btn btn-primary nav-btn">Book Now</a>
                 <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
@@ -1359,14 +1207,14 @@ ul{list-style:none}
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="hero-badge anim-hero" style="animation: scaleIn 0.6s ease-out 0.1s both;">🏥 Est. 2010 &bull; Christchurch, NZ</span>
-            <h1 class="anim-hero" style="animation: fadeInUp 0.8s ease-out 0.3s both;">Avonhead Family<br><span>Health Centre</span></h1>
-            <p class="anim-hero" style="animation: fadeInUp 0.8s ease-out 0.5s both;">Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
-            <div class="hero-buttons anim-hero" style="animation: fadeInUp 0.8s ease-out 0.7s both;">
+            <span class="hero-badge" style="animation: scaleIn 0.5s ease-out 0.05s both;">🏥 Est. 2010 &bull; Christchurch, NZ</span>
+            <h1 style="animation: fadeInUp 0.6s ease-out 0.2s both;">Avonhead Family<br><span>Health Centre</span></h1>
+            <p style="animation: fadeInUp 0.6s ease-out 0.35s both;">Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
+            <div class="hero-buttons" style="animation: fadeInUp 0.6s ease-out 0.5s both;">
                 <a href="#contact" class="btn btn-secondary">📅 Book an Appointment</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
-            <div class="hero-stats" id="heroStats">
+            <div class="hero-stats" id="heroStats" style="animation: fadeInUp 0.6s ease-out 0.65s both;">
                 <div class="hero-stat">
                     <span class="number" data-target="14" data-suffix="+">0</span>
                     <span class="label">Years of Service</span>
@@ -1578,19 +1426,19 @@ ul{list-style:none}
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Full Name <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" placeholder="e.g. John Smith" required>
+                                <input type="text" id="name" name="name" placeholder="e.g. John Smith" required autocomplete="name">
                                 <span class="error-msg" id="nameError">Please enter your full name.</span>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" placeholder="e.g. john@example.com" required>
+                                <input type="email" id="email" name="email" placeholder="e.g. john@example.com" required autocomplete="email">
                                 <span class="error-msg" id="emailError">Please enter a valid email address.</span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Phone Number <span class="required">*</span></label>
-                                <input type="tel" id="phone" name="phone" placeholder="e.g. 021 123 4567" required>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g. 021 123 4567" required autocomplete="tel">
                                 <span class="error-msg" id="phoneError">Please enter your phone number.</span>
                             </div>
                             <div class="form-group">
@@ -1679,103 +1527,122 @@ ul{list-style:none}
                     </div>
 
                     <div class="contact-map anim-hidden" data-anim>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d172.5!3d-43.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMwJzAwLjAiUyAxNzLCsDMwJzAwLjAiRQ!5e0!3m2!1sen!2snz!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Avonhead Family Health Centre location on Google Maps"></iframe>
-                    </div>
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d172.5!3d-43.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMwJzAwLjAiUyAxNzLCsDMwJzAwLjAiRQ!5e0!3m2!1sen!2snz!4v1"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Avonhead Family Health Centre location on Google Maps">
+                    </iframe>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Avonhead Family Health Centre</h4>
-                    <p>Your trusted local GP practice in Christchurch, providing compassionate, patient-centred healthcare for the whole family since 2010.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook" title="Facebook">📘</a>
-                        <a href="#" aria-label="Instagram" title="Instagram">📷</a>
-                        <a href="#" aria-label="Twitter" title="Twitter">🐦</a>
-                        <a href="#" aria-label="LinkedIn" title="LinkedIn">💼</a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <p><a href="#home">Home</a></p>
-                    <p><a href="#about">About Us</a></p>
-                    <p><a href="#services">Services</a></p>
-                    <p><a href="#team">Our Team</a></p>
-                    <p><a href="#contact">Contact & Booking</a></p>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <p>📍 42 Avonhead Road, Avonhead, Christchurch 8042</p>
-                    <p>📞 <a href="tel:+6431234567">(03) 123 4567</a></p>
-                    <p>✉️ <a href="mailto:info@avonheadhealth.nz">info@avonheadhealth.nz</a></p>
-                    <p>💬 <a href="https://wa.me/64271234567" target="_blank" rel="noopener">WhatsApp</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Avonhead Family Health Centre. All rights reserved.</p>
-                <p class="credit">Website by <a href="https://github.com/amjaid" target="_blank" rel="noopener">Abdullah Jaid</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== FLOATING BOOK BUTTON (MOBILE) ===== -->
-    <button class="floating-book" id="floatingBook" aria-label="Book an appointment">📅 Book Now</button>
-
-    <!-- ===== CONFIRMATION MODAL ===== -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
-            <div class="modal-icon">✅</div>
-            <h3 id="modalTitle">Booking Confirmed!</h3>
-            <p>Thank you for booking with Avonhead Family Health Centre. We have received your appointment request and will contact you within 24 hours to confirm your preferred date and time.</p>
-            <p style="font-size:0.85rem;color:var(--text-light);margin-top:-16px;margin-bottom:24px;">If your needs are urgent, please call us directly at <strong>(03) 123 4567</strong>.</p>
-            <button class="btn btn-primary" id="modalDone">Got it, thanks!</button>
         </div>
     </div>
+</section>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // ===== MOBILE HAMBURGER MENU =====
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Avonhead Family Health Centre</h4>
+                <p>Your trusted local GP practice in Christchurch, providing compassionate, patient-centred healthcare for the whole family since 2010.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook" title="Facebook">📘</a>
+                    <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+                    <a href="#" aria-label="Twitter" title="Twitter">🐦</a>
+                    <a href="#" aria-label="LinkedIn" title="LinkedIn">💼</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#about">About Us</a></p>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#team">Our Team</a></p>
+                <p><a href="#contact">Contact & Booking</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p>📍 42 Avonhead Road, Avonhead, Christchurch 8042</p>
+                <p>📞 <a href="tel:+6431234567">(03) 123 4567</a></p>
+                <p>✉️ <a href="mailto:info@avonheadhealth.nz">info@avonheadhealth.nz</a></p>
+                <p>💬 <a href="https://wa.me/64271234567" target="_blank" rel="noopener">WhatsApp</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Avonhead Family Health Centre. All rights reserved.</p>
+            <p class="credit">Website by <a href="https://github.com/amjaid" target="_blank" rel="noopener">Abdullah Jaid</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ===== FLOATING BOOK BUTTON (MOBILE) ===== -->
+<button class="floating-book" id="floatingBook" aria-label="Book an appointment">📅 Book Now</button>
+
+<!-- ===== CONFIRMATION MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+        <div class="modal-icon">✅</div>
+        <h3 id="modalTitle">Booking Confirmed!</h3>
+        <p>Thank you for booking with Avonhead Family Health Centre. We have received your appointment request and will contact you within 24 hours to confirm your preferred date and time.</p>
+        <p style="font-size:0.85rem;color:var(--text-light);margin-top:-16px;margin-bottom:24px;">If your needs are urgent, please call us directly at <strong>(03) 123 4567</strong>.</p>
+        <button class="btn btn-primary" id="modalDone">Got it, thanks!</button>
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    (function() {
+        'use strict';
+
+        // ===== DOM REFS =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
+        const navbar = document.getElementById('navbar');
+        const floatingBook = document.getElementById('floatingBook');
+        const bookingForm = document.getElementById('bookingForm');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalClose = document.getElementById('modalClose');
+        const modalDone = document.getElementById('modalDone');
+        const dateInput = document.getElementById('date');
+        const heroStats = document.getElementById('heroStats');
 
-        hamburger.addEventListener('click', function() {
-            const isActive = navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-            this.setAttribute('aria-expanded', isActive);
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
+        // ===== MOBILE HAMBURGER MENU =====
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                const isActive = navLinks.classList.toggle('active');
+                this.classList.toggle('active');
+                this.setAttribute('aria-expanded', isActive);
             });
-        });
+
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
 
         // ===== STICKY NAVBAR SCROLL EFFECT =====
-        const navbar = document.getElementById('navbar');
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        }, { passive: true });
+        if (navbar) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }, { passive: true });
+        }
 
         // ===== SMOOTH SCROLL FOR NAV LINKS =====
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
             anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
+                var targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                const target = document.querySelector(targetId);
+                var target = document.querySelector(targetId);
                 if (target) {
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth' });
@@ -1784,267 +1651,200 @@ ul{list-style:none}
         });
 
         // ===== FLOATING BOOK BUTTON =====
-        const floatingBook = document.getElementById('floatingBook');
-        floatingBook.addEventListener('click', function() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        });
+        if (floatingBook) {
+            floatingBook.addEventListener('click', function() {
+                var contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        // ===== SET MIN DATE TO TODAY =====
+        if (dateInput) {
+            var today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
 
         // ===== FORM VALIDATION =====
-        const bookingForm = document.getElementById('bookingForm');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modalClose = document.getElementById('modalClose');
-        const modalDone = document.getElementById('modalDone');
-
         function showError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.classList.add('error');
-            error.classList.add('visible');
+            var input = document.getElementById(inputId);
+            var error = document.getElementById(errorId);
+            if (input) input.classList.add('error');
+            if (error) error.classList.add('visible');
         }
 
         function clearError(inputId, errorId) {
-            const input = document.getElementById(inputId);
-            const error = document.getElementById(errorId);
-            input.classList.remove('error');
-            error.classList.remove('visible');
+            var input = document.getElementById(inputId);
+            var error = document.getElementById(errorId);
+            if (input) input.classList.remove('error');
+            if (error) error.classList.remove('visible');
         }
 
         function validateEmail(email) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
-        // Clear errors on input
-        document.querySelectorAll('#bookingForm input, #bookingForm select, #bookingForm textarea').forEach(function(el) {
-            el.addEventListener('input', function() {
-                const errorId = this.id + 'Error';
-                const errorEl = document.getElementById(errorId);
-                if (errorEl) {
-                    this.classList.remove('error');
-                    errorEl.classList.remove('visible');
+        // Clear errors on input/change
+        if (bookingForm) {
+            bookingForm.querySelectorAll('input, select, textarea').forEach(function(el) {
+                el.addEventListener('input', function() {
+                    var errorId = this.id + 'Error';
+                    var errorEl = document.getElementById(errorId);
+                    if (errorEl) {
+                        this.classList.remove('error');
+                        errorEl.classList.remove('visible');
+                    }
+                });
+                el.addEventListener('change', function() {
+                    var errorId = this.id + 'Error';
+                    var errorEl = document.getElementById(errorId);
+                    if (errorEl) {
+                        this.classList.remove('error');
+                        errorEl.classList.remove('visible');
+                    }
+                });
+            });
+
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var isValid = true;
+
+                var nameVal = (document.getElementById('name').value || '').trim();
+                if (!nameVal) { showError('name', 'nameError');
+                    isValid = false; } else { clearError('name', 'nameError'); }
+
+                var emailVal = (document.getElementById('email').value || '').trim();
+                if (!emailVal || !validateEmail(emailVal)) { showError('email', 'emailError');
+                    isValid = false; } else { clearError('email', 'emailError'); }
+
+                var phoneVal = (document.getElementById('phone').value || '').trim();
+                if (!phoneVal) { showError('phone', 'phoneError');
+                    isValid = false; } else { clearError('phone', 'phoneError'); }
+
+                var dateVal = document.getElementById('date').value;
+                if (!dateVal) { showError('date', 'dateError');
+                    isValid = false; } else { clearError('date', 'dateError'); }
+
+                var timeVal = document.getElementById('time').value;
+                if (!timeVal) { showError('time', 'timeError');
+                    isValid = false; } else { clearError('time', 'timeError'); }
+
+                if (isValid && modalOverlay) {
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 }
             });
-            el.addEventListener('change', function() {
-                const errorId = this.id + 'Error';
-                const errorEl = document.getElementById(errorId);
-                if (errorEl) {
-                    this.classList.remove('error');
-                    errorEl.classList.remove('visible');
-                }
-            });
-        });
-
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            let isValid = true;
-
-            // Name
-            const name = document.getElementById('name').value.trim();
-            if (!name) {
-                showError('name', 'nameError');
-                isValid = false;
-            } else {
-                clearError('name', 'nameError');
-            }
-
-            // Email
-            const email = document.getElementById('email').value.trim();
-            if (!email || !validateEmail(email)) {
-                showError('email', 'emailError');
-                isValid = false;
-            } else {
-                clearError('email', 'emailError');
-            }
-
-            // Phone
-            const phone = document.getElementById('phone').value.trim();
-            if (!phone) {
-                showError('phone', 'phoneError');
-                isValid = false;
-            } else {
-                clearError('phone', 'phoneError');
-            }
-
-            // Date
-            const date = document.getElementById('date').value;
-            if (!date) {
-                showError('date', 'dateError');
-                isValid = false;
-            } else {
-                clearError('date', 'dateError');
-            }
-
-            // Time
-            const time = document.getElementById('time').value;
-            if (!time) {
-                showError('time', 'timeError');
-                isValid = false;
-            } else {
-                clearError('time', 'timeError');
-            }
-
-            if (isValid) {
-                // Show confirmation modal
-                modalOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
+        }
 
         // ===== MODAL CONTROLS =====
         function closeModal() {
-            modalOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        modalClose.addEventListener('click', closeModal);
-        modalDone.addEventListener('click', closeModal);
-
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+            if (modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
-        });
-
-        // Close modal with Escape key
+        }
+        if (modalClose) modalClose.addEventListener('click', closeModal);
+        if (modalDone) modalDone.addEventListener('click', closeModal);
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        }
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
                 closeModal();
             }
         });
-
-        // ===== SET MIN DATE TO TODAY =====
-        const dateInput = document.getElementById('date');
-        if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.setAttribute('min', today);
-        }
 
         // ============================================================
         // ===== INTERSECTION OBSERVER — SCROLL-TRIGGERED ANIMATIONS =====
         // ============================================================
-        (function() {
-            'use strict';
-
-            // Check for reduced motion preference
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (prefersReducedMotion) return;
-
-            const animElements = document.querySelectorAll('[data-anim]');
-
-            if (!animElements.length) return;
-
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        const el = entry.target;
-                        const siblings = el.parentElement.querySelectorAll(':scope > [data-anim]');
-                        const index = Array.prototype.indexOf.call(siblings, el);
-
-                        // Apply stagger delay (100ms per item, max 600ms)
-                        const delay = Math.min(index * 100, 600);
-
-                        // Use requestAnimationFrame to batch style changes
-                        requestAnimationFrame(function() {
-                            el.style.animationDelay = delay + 'ms';
-                            el.classList.remove('anim-hidden');
-                            el.classList.add('anim-visible');
-                        });
-
-                        observer.unobserve(el);
-                    }
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReducedMotion) {
+            var animElements = document.querySelectorAll('[data-anim]');
+            if (animElements.length) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var el = entry.target;
+                            var siblings = el.parentElement.querySelectorAll(':scope > [data-anim]');
+                            var index = Array.prototype.indexOf.call(siblings, el);
+                            var delay = Math.min(index * 80, 400); // Reduced max delay for smoother mobile
+                            requestAnimationFrame(function() {
+                                el.style.animationDelay = delay + 'ms';
+                                el.classList.remove('anim-hidden');
+                                el.classList.add('anim-visible');
+                            });
+                            observer.unobserve(el);
+                        }
+                    });
+                }, {
+                    threshold: 0.12,
+                    rootMargin: '0px 0px -30px 0px'
                 });
-            }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -40px 0px'
-            });
 
-            animElements.forEach(function(el) {
-                observer.observe(el);
-            });
-        })();
+                animElements.forEach(function(el) {
+                    observer.observe(el);
+                });
+            }
+        }
 
         // ============================================================
         // ===== COUNTER ANIMATION — HERO STATISTICS =====
         // ============================================================
-        (function() {
-            'use strict';
-
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            const counters = document.querySelectorAll('#heroStats .number');
-            if (!counters.length) return;
-
-            let countersAnimated = false;
+        if (!prefersReducedMotion && heroStats) {
+            var counters = heroStats.querySelectorAll('.number');
+            var countersAnimated = false;
 
             function animateCounters() {
                 if (countersAnimated) return;
                 countersAnimated = true;
 
                 counters.forEach(function(counter) {
-                    const target = parseInt(counter.getAttribute('data-target'), 10);
-                    const suffix = counter.getAttribute('data-suffix') || '';
-                    const prefix = counter.getAttribute('data-prefix') || '';
-                    const duration = 1500; // ms
-                    const startTime = performance.now();
+                    var target = parseInt(counter.getAttribute('data-target'), 10);
+                    var suffix = counter.getAttribute('data-suffix') || '';
+                    var prefix = counter.getAttribute('data-prefix') || '';
+                    var duration = 1500;
+                    var startTime = performance.now();
 
                     function updateCounter(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-
-                        // Ease-out cubic
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        const currentValue = Math.round(eased * target);
-
-                        if (prefix) {
-                            counter.textContent = prefix + currentValue + suffix;
-                        } else {
-                            counter.textContent = currentValue + suffix;
-                        }
-
+                        var elapsed = currentTime - startTime;
+                        var progress = Math.min(elapsed / duration, 1);
+                        var eased = 1 - Math.pow(1 - progress, 3);
+                        var currentValue = Math.round(eased * target);
+                        counter.textContent = (prefix || '') + currentValue + suffix;
                         if (progress < 1) {
                             requestAnimationFrame(updateCounter);
                         } else {
-                            // Final value
-                            if (prefix) {
-                                counter.textContent = prefix + target + suffix;
-                            } else {
-                                counter.textContent = target + suffix;
-                            }
+                            counter.textContent = (prefix || '') + target + suffix;
                         }
                     }
-
                     requestAnimationFrame(updateCounter);
                 });
             }
 
-            // If reduced motion, just set final values immediately
-            if (prefersReducedMotion) {
-                counters.forEach(function(counter) {
-                    const target = counter.getAttribute('data-target');
-                    const suffix = counter.getAttribute('data-suffix') || '';
-                    const prefix = counter.getAttribute('data-prefix') || '';
-                    counter.textContent = prefix + target + suffix;
+            var counterObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        counterObserver.unobserve(entry.target);
+                    }
                 });
-                return;
-            }
+            }, { threshold: 0.3 });
+            counterObserver.observe(heroStats);
+        } else if (prefersReducedMotion && heroStats) {
+            // Set final values immediately for reduced motion
+            heroStats.querySelectorAll('.number').forEach(function(counter) {
+                var target = counter.getAttribute('data-target');
+                var suffix = counter.getAttribute('data-suffix') || '';
+                var prefix = counter.getAttribute('data-prefix') || '';
+                counter.textContent = prefix + target + suffix;
+            });
+        }
 
-            // Use IntersectionObserver to trigger counter animation when hero is visible
-            const heroStats = document.getElementById('heroStats');
-            if (heroStats) {
-                const counterObserver = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            animateCounters();
-                            counterObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.3 });
-
-                counterObserver.observe(heroStats);
-            }
-        })();
-
-        console.log('Avonhead Family Health Centre — animations enabled.');
-    </script>
+        console.log('Avonhead Family Health Centre — ready.');
+    })();
+</script>
 </body>
 </html>
