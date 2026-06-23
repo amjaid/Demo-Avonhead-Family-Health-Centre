@@ -151,7 +151,6 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
             transition: box-shadow 0.3s ease;
-            contain: layout style;
         }
         .navbar.scrolled {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -284,7 +283,6 @@
             position: relative;
             overflow: hidden;
             padding-top: var(--nav-height);
-            contain: layout style paint;
         }
         .hero::before {
             content: '';
@@ -369,77 +367,9 @@
             opacity: 0.8;
         }
 
-        /* ===== ANIMATIONS (Optimized) ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translate3d(0, 20px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale3d(0.94, 0.94, 1);
-            }
-            to {
-                opacity: 1;
-                transform: scale3d(1, 1, 1);
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .anim-hidden {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-        }
-        .anim-hidden-scale {
-            opacity: 0;
-            transform: scale3d(0.94, 0.94, 1);
-        }
-        .anim-visible {
-            animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-        .anim-visible-scale {
-            animation: scaleIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-        .anim-visible-fade {
-            animation: fadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            .anim-hidden,
-            .anim-hidden-scale {
-                opacity: 1;
-                transform: none;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-        }
-
         /* ===== ABOUT ===== */
         .about {
             background: var(--white);
-            contain: layout style;
         }
         .about-grid {
             display: grid;
@@ -492,7 +422,6 @@
         /* ===== WHY CHOOSE US ===== */
         .why-choose {
             background: var(--secondary-light);
-            contain: layout style;
         }
         .why-grid {
             display: grid;
@@ -528,7 +457,6 @@
         /* ===== SERVICES ===== */
         .services {
             background: var(--white);
-            contain: layout style;
         }
         .services-grid {
             display: grid;
@@ -573,7 +501,6 @@
         /* ===== TEAM ===== */
         .team {
             background: var(--accent);
-            contain: layout style;
         }
         .team-grid {
             display: grid;
@@ -632,7 +559,6 @@
         /* ===== TESTIMONIALS ===== */
         .testimonials {
             background: var(--white);
-            contain: layout style;
         }
         .testimonials-grid {
             display: grid;
@@ -706,7 +632,6 @@
         /* ===== CONTACT / BOOKING ===== */
         .contact {
             background: var(--accent);
-            contain: layout style;
         }
         .contact-grid {
             display: grid;
@@ -856,7 +781,6 @@
             background: var(--primary-dark);
             color: var(--white);
             padding: 50px 0 0;
-            contain: layout style;
         }
         .footer-grid {
             display: grid;
@@ -978,18 +902,7 @@
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            animation: modalIn 0.3s ease;
             position: relative;
-        }
-        @keyframes modalIn {
-            from {
-                opacity: 0;
-                transform: scale3d(0.9, 0.9, 1) translate3d(0, 20px, 0);
-            }
-            to {
-                opacity: 1;
-                transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
-            }
         }
         .modal .modal-icon {
             font-size: 3.5rem;
@@ -1027,11 +940,7 @@
             transform: rotate(90deg);
         }
 
-        /* ============================================= */
         /* ===== RESPONSIVE BREAKPOINTS ===== */
-        /* ============================================= */
-
-        /* Tablet: 768px+ */
         @media (min-width: 768px) {
             .section {
                 padding: 100px 0;
@@ -1082,7 +991,6 @@
             }
         }
 
-        /* Desktop: 1024px+ */
         @media (min-width: 1024px) {
             .hero h1 {
                 font-size: 4rem;
@@ -1098,7 +1006,6 @@
             }
         }
 
-        /* Mobile only: max 767px */
         @media (max-width: 767px) {
             .hamburger {
                 display: flex;
@@ -1163,7 +1070,6 @@
             }
         }
 
-        /* Small mobile: max 400px */
         @media (max-width: 400px) {
             .why-grid {
                 grid-template-columns: 1fr;
@@ -1207,24 +1113,24 @@
     <!-- ===== HERO ===== -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <span class="hero-badge" style="animation: scaleIn 0.5s ease-out 0.05s both;">🏥 Est. 2010 &bull; Christchurch, NZ</span>
-            <h1 style="animation: fadeInUp 0.6s ease-out 0.2s both;">Avonhead Family<br><span>Health Centre</span></h1>
-            <p style="animation: fadeInUp 0.6s ease-out 0.35s both;">Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
-            <div class="hero-buttons" style="animation: fadeInUp 0.6s ease-out 0.5s both;">
+            <span class="hero-badge">🏥 Est. 2010 &bull; Christchurch, NZ</span>
+            <h1>Avonhead Family<br><span>Health Centre</span></h1>
+            <p>Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
+            <div class="hero-buttons">
                 <a href="#contact" class="btn btn-secondary">📅 Book an Appointment</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
             </div>
-            <div class="hero-stats" id="heroStats" style="animation: fadeInUp 0.6s ease-out 0.65s both;">
+            <div class="hero-stats" id="heroStats">
                 <div class="hero-stat">
-                    <span class="number" data-target="14" data-suffix="+">0</span>
+                    <span class="number">14+</span>
                     <span class="label">Years of Service</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="number" data-target="12" data-suffix="K+">0</span>
+                    <span class="number">12K+</span>
                     <span class="label">Patients Cared For</span>
                 </div>
                 <div class="hero-stat">
-                    <span class="number" data-target="49" data-suffix="" data-prefix="4.">0</span>
+                    <span class="number">4.9</span>
                     <span class="label">Patient Rating</span>
                 </div>
             </div>
@@ -1234,13 +1140,11 @@
     <!-- ===== ABOUT ===== -->
     <section class="about section" id="about">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">About Our Clinic</h2>
-                <p class="section-subtitle">Providing compassionate, comprehensive healthcare for the whole family in a warm and welcoming environment.</p>
-            </div>
+            <h2 class="section-title">About Our Clinic</h2>
+            <p class="section-subtitle">Providing compassionate, comprehensive healthcare for the whole family in a warm and welcoming environment.</p>
             <div class="about-grid">
-                <div class="about-image anim-hidden" data-anim>🏥</div>
-                <div class="about-text anim-hidden" data-anim>
+                <div class="about-image">🏥</div>
+                <div class="about-text">
                     <h3>Your Health, Our Priority</h3>
                     <p>At Avonhead Family Health Centre, we believe in healthcare that puts people first. Our dedicated team of experienced general practitioners and support staff work together to provide personalised medical care for every member of your family &mdash; from infants to seniors.</p>
                     <p>Conveniently located in the heart of Avonhead, Christchurch, our modern facility is equipped with the latest medical technology to ensure accurate diagnoses and effective treatments. We are proud to be an accredited General Practice meeting the highest standards of care.</p>
@@ -1258,32 +1162,30 @@
     <!-- ===== WHY CHOOSE US ===== -->
     <section class="why-choose section" id="why-choose">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">Why Choose Avonhead Health?</h2>
-                <p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p>
-            </div>
+            <h2 class="section-title">Why Choose Avonhead Health?</h2>
+            <p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p>
             <div class="why-grid">
-                <div class="why-card anim-hidden" data-anim>
+                <div class="why-card">
                     <div class="icon">👨‍⚕️</div>
                     <h4>Experienced GPs</h4>
                     <p>Over 20 years of combined experience in family medicine.</p>
                 </div>
-                <div class="why-card anim-hidden" data-anim>
+                <div class="why-card">
                     <div class="icon">📅</div>
                     <h4>Same-Day Appointments</h4>
                     <p>Urgent care when you need it &mdash; no long waiting lists.</p>
                 </div>
-                <div class="why-card anim-hidden" data-anim>
+                <div class="why-card">
                     <div class="icon">🩺</div>
                     <h4>ACC Registered</h4>
                     <p>Fully accredited for accident and injury care.</p>
                 </div>
-                <div class="why-card anim-hidden" data-anim>
+                <div class="why-card">
                     <div class="icon">❤️</div>
                     <h4>Patient-Centred Care</h4>
                     <p>Your health journey, guided by compassion and respect.</p>
                 </div>
-                <div class="why-card anim-hidden" data-anim>
+                <div class="why-card">
                     <div class="icon">🏛️</div>
                     <h4>Modern Facilities</h4>
                     <p>Comfortable, clean, and equipped with the latest technology.</p>
@@ -1295,37 +1197,35 @@
     <!-- ===== SERVICES ===== -->
     <section class="services section" id="services">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">Comprehensive healthcare services tailored to every stage of life.</p>
-            </div>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive healthcare services tailored to every stage of life.</p>
             <div class="services-grid">
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">❤️</div>
                     <h4>General Health Check</h4>
                     <p>Comprehensive health assessments, blood tests, and preventive screenings for all ages.</p>
                 </div>
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">👩</div>
                     <h4>Women's Health</h4>
                     <p>Cervical screening, contraceptive advice, menopause management, and pregnancy care.</p>
                 </div>
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">👶</div>
                     <h4>Children's Health</h4>
                     <p>Well-child checks, immunisations, developmental assessments, and acute care.</p>
                 </div>
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">🔬</div>
                     <h4>Minor Surgery</h4>
                     <p>Skin lesion removal, wound management, and minor surgical procedures in-clinic.</p>
                 </div>
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">☀️</div>
                     <h4>Skin Checks</h4>
                     <p>Full skin examinations, mole mapping, and early detection of skin cancers.</p>
                 </div>
-                <div class="service-card anim-hidden" data-anim>
+                <div class="service-card">
                     <div class="icon">✈️</div>
                     <h4>Travel Medicine</h4>
                     <p>Travel vaccinations, health advice, and prescriptions for your overseas trips.</p>
@@ -1337,24 +1237,22 @@
     <!-- ===== OUR TEAM ===== -->
     <section class="team section" id="team">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">Meet Our Team</h2>
-                <p class="section-subtitle">Dedicated healthcare professionals committed to your wellbeing.</p>
-            </div>
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">Dedicated healthcare professionals committed to your wellbeing.</p>
             <div class="team-grid">
-                <div class="team-card anim-hidden" data-anim>
+                <div class="team-card">
                     <div class="team-img dr1">👩‍⚕️</div>
                     <h4>Dr. Sarah Mitchell</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
                     <p>With over 15 years of experience, Dr. Mitchell has a special interest in women's health and chronic disease management. She is known for her warm, thorough approach to patient care.</p>
                 </div>
-                <div class="team-card anim-hidden" data-anim>
+                <div class="team-card">
                     <div class="team-img dr2">👨‍⚕️</div>
                     <h4>Dr. James Chen</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
                     <p>Dr. Chen brings 12 years of experience in family medicine, with expertise in minor surgery and skin checks. He is passionate about preventive care and patient education.</p>
                 </div>
-                <div class="team-card anim-hidden" data-anim>
+                <div class="team-card">
                     <div class="team-img dr3">👩‍⚕️</div>
                     <h4>Dr. Emily Watson</h4>
                     <p class="specialty">General Practitioner &bull; MBChB, FRNZCGP</p>
@@ -1367,12 +1265,10 @@
     <!-- ===== TESTIMONIALS ===== -->
     <section class="testimonials section" id="testimonials">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">What Our Patients Say</h2>
-                <p class="section-subtitle">Hear from the families we've had the privilege of caring for.</p>
-            </div>
+            <h2 class="section-title">What Our Patients Say</h2>
+            <p class="section-subtitle">Hear from the families we've had the privilege of caring for.</p>
             <div class="testimonials-grid">
-                <div class="testimonial-card anim-hidden" data-anim>
+                <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"The team at Avonhead Health Centre are absolutely wonderful. They always take the time to listen and explain everything clearly. I wouldn't trust anyone else with my family's health."</blockquote>
                     <div class="testimonial-author">
@@ -1383,7 +1279,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card anim-hidden" data-anim>
+                <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"I moved to Christchurch two years ago and was lucky to find this clinic. Dr. Chen is fantastic &mdash; he really cares about his patients. The reception staff are always friendly too."</blockquote>
                     <div class="testimonial-author">
@@ -1394,7 +1290,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card anim-hidden" data-anim>
+                <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
                     <blockquote>"The children's health service here is outstanding. Dr. Watson is so patient and gentle with my kids. Same-day appointments have been a lifesaver more than once!"</blockquote>
                     <div class="testimonial-author">
@@ -1415,12 +1311,10 @@
     <!-- ===== CONTACT / BOOKING ===== -->
     <section class="contact section" id="contact">
         <div class="container">
-            <div class="anim-hidden" data-anim>
-                <h2 class="section-title">Book an Appointment</h2>
-                <p class="section-subtitle">Ready to visit us? Fill out the form below and we'll confirm your booking shortly.</p>
-            </div>
+            <h2 class="section-title">Book an Appointment</h2>
+            <p class="section-subtitle">Ready to visit us? Fill out the form below and we'll confirm your booking shortly.</p>
             <div class="contact-grid">
-                <div class="contact-form anim-hidden" data-anim>
+                <div class="contact-form">
                     <h3>📋 Request a Booking</h3>
                     <form id="bookingForm" novalidate>
                         <div class="form-row">
@@ -1492,7 +1386,7 @@
                 </div>
 
                 <div class="contact-info">
-                    <div class="contact-info-card anim-hidden" data-anim>
+                    <div class="contact-info-card">
                         <h3>📍 Visit Us</h3>
                         <div class="info-item">
                             <span class="info-icon">📍</span>
@@ -1512,7 +1406,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-info-card anim-hidden" data-anim>
+                    <div class="contact-info-card">
                         <h3>🕐 Opening Hours</h3>
                         <div class="hours-grid">
                             <span class="day">Monday &ndash; Friday</span>
@@ -1526,7 +1420,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-map anim-hidden" data-anim>
+                    <div class="contact-map">
                         <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2892.5!2d172.5!3d-43.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDMwJzAwLjAiUyAxNzLCsDMwJzAwLjAiRQ!5e0!3m2!1sen!2snz!4v1"
                         allowfullscreen=""
@@ -1597,7 +1491,6 @@
     (function() {
         'use strict';
 
-        // ===== DOM REFS =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const navbar = document.getElementById('navbar');
@@ -1607,18 +1500,16 @@
         const modalClose = document.getElementById('modalClose');
         const modalDone = document.getElementById('modalDone');
         const dateInput = document.getElementById('date');
-        const heroStats = document.getElementById('heroStats');
 
-        // ===== MOBILE HAMBURGER MENU =====
+        // Hamburger menu
         if (hamburger && navLinks) {
             hamburger.addEventListener('click', function() {
                 const isActive = navLinks.classList.toggle('active');
                 this.classList.toggle('active');
                 this.setAttribute('aria-expanded', isActive);
             });
-
-            navLinks.querySelectorAll('a').forEach(function(link) {
-                link.addEventListener('click', function() {
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
                     hamburger.classList.remove('active');
                     hamburger.setAttribute('aria-expanded', 'false');
@@ -1626,23 +1517,19 @@
             });
         }
 
-        // ===== STICKY NAVBAR SCROLL EFFECT =====
+        // Sticky navbar shadow
         if (navbar) {
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+            window.addEventListener('scroll', () => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
             }, { passive: true });
         }
 
-        // ===== SMOOTH SCROLL FOR NAV LINKS =====
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                var targetId = this.getAttribute('href');
+                const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                var target = document.querySelector(targetId);
+                const target = document.querySelector(targetId);
                 if (target) {
                     e.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth' });
@@ -1650,55 +1537,47 @@
             });
         });
 
-        // ===== FLOATING BOOK BUTTON =====
+        // Floating book button
         if (floatingBook) {
-            floatingBook.addEventListener('click', function() {
-                var contactSection = document.getElementById('contact');
-                if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
+            floatingBook.addEventListener('click', () => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
             });
         }
 
-        // ===== SET MIN DATE TO TODAY =====
+        // Set min date to today
         if (dateInput) {
-            var today = new Date().toISOString().split('T')[0];
-            dateInput.setAttribute('min', today);
+            dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
         }
 
-        // ===== FORM VALIDATION =====
+        // Form validation helpers
         function showError(inputId, errorId) {
-            var input = document.getElementById(inputId);
-            var error = document.getElementById(errorId);
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
             if (input) input.classList.add('error');
             if (error) error.classList.add('visible');
         }
-
         function clearError(inputId, errorId) {
-            var input = document.getElementById(inputId);
-            var error = document.getElementById(errorId);
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
             if (input) input.classList.remove('error');
             if (error) error.classList.remove('visible');
         }
-
         function validateEmail(email) {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         }
 
-        // Clear errors on input/change
         if (bookingForm) {
-            bookingForm.querySelectorAll('input, select, textarea').forEach(function(el) {
+            bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
                 el.addEventListener('input', function() {
-                    var errorId = this.id + 'Error';
-                    var errorEl = document.getElementById(errorId);
+                    const errorEl = document.getElementById(this.id + 'Error');
                     if (errorEl) {
                         this.classList.remove('error');
                         errorEl.classList.remove('visible');
                     }
                 });
                 el.addEventListener('change', function() {
-                    var errorId = this.id + 'Error';
-                    var errorEl = document.getElementById(errorId);
+                    const errorEl = document.getElementById(this.id + 'Error');
                     if (errorEl) {
                         this.classList.remove('error');
                         errorEl.classList.remove('visible');
@@ -1708,27 +1587,22 @@
 
             bookingForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                var isValid = true;
+                let isValid = true;
 
-                var nameVal = (document.getElementById('name').value || '').trim();
-                if (!nameVal) { showError('name', 'nameError');
-                    isValid = false; } else { clearError('name', 'nameError'); }
+                const nameVal = document.getElementById('name').value.trim();
+                if (!nameVal) { showError('name', 'nameError'); isValid = false; } else { clearError('name', 'nameError'); }
 
-                var emailVal = (document.getElementById('email').value || '').trim();
-                if (!emailVal || !validateEmail(emailVal)) { showError('email', 'emailError');
-                    isValid = false; } else { clearError('email', 'emailError'); }
+                const emailVal = document.getElementById('email').value.trim();
+                if (!emailVal || !validateEmail(emailVal)) { showError('email', 'emailError'); isValid = false; } else { clearError('email', 'emailError'); }
 
-                var phoneVal = (document.getElementById('phone').value || '').trim();
-                if (!phoneVal) { showError('phone', 'phoneError');
-                    isValid = false; } else { clearError('phone', 'phoneError'); }
+                const phoneVal = document.getElementById('phone').value.trim();
+                if (!phoneVal) { showError('phone', 'phoneError'); isValid = false; } else { clearError('phone', 'phoneError'); }
 
-                var dateVal = document.getElementById('date').value;
-                if (!dateVal) { showError('date', 'dateError');
-                    isValid = false; } else { clearError('date', 'dateError'); }
+                const dateVal = document.getElementById('date').value;
+                if (!dateVal) { showError('date', 'dateError'); isValid = false; } else { clearError('date', 'dateError'); }
 
-                var timeVal = document.getElementById('time').value;
-                if (!timeVal) { showError('time', 'timeError');
-                    isValid = false; } else { clearError('time', 'timeError'); }
+                const timeVal = document.getElementById('time').value;
+                if (!timeVal) { showError('time', 'timeError'); isValid = false; } else { clearError('time', 'timeError'); }
 
                 if (isValid && modalOverlay) {
                     modalOverlay.classList.add('active');
@@ -1737,7 +1611,7 @@
             });
         }
 
-        // ===== MODAL CONTROLS =====
+        // Modal controls
         function closeModal() {
             if (modalOverlay) {
                 modalOverlay.classList.remove('active');
@@ -1756,92 +1630,6 @@
                 closeModal();
             }
         });
-
-        // ============================================================
-        // ===== INTERSECTION OBSERVER — SCROLL-TRIGGERED ANIMATIONS =====
-        // ============================================================
-        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReducedMotion) {
-            var animElements = document.querySelectorAll('[data-anim]');
-            if (animElements.length) {
-                var observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            var el = entry.target;
-                            var siblings = el.parentElement.querySelectorAll(':scope > [data-anim]');
-                            var index = Array.prototype.indexOf.call(siblings, el);
-                            var delay = Math.min(index * 80, 400); // Reduced max delay for smoother mobile
-                            requestAnimationFrame(function() {
-                                el.style.animationDelay = delay + 'ms';
-                                el.classList.remove('anim-hidden');
-                                el.classList.add('anim-visible');
-                            });
-                            observer.unobserve(el);
-                        }
-                    });
-                }, {
-                    threshold: 0.12,
-                    rootMargin: '0px 0px -30px 0px'
-                });
-
-                animElements.forEach(function(el) {
-                    observer.observe(el);
-                });
-            }
-        }
-
-        // ============================================================
-        // ===== COUNTER ANIMATION — HERO STATISTICS =====
-        // ============================================================
-        if (!prefersReducedMotion && heroStats) {
-            var counters = heroStats.querySelectorAll('.number');
-            var countersAnimated = false;
-
-            function animateCounters() {
-                if (countersAnimated) return;
-                countersAnimated = true;
-
-                counters.forEach(function(counter) {
-                    var target = parseInt(counter.getAttribute('data-target'), 10);
-                    var suffix = counter.getAttribute('data-suffix') || '';
-                    var prefix = counter.getAttribute('data-prefix') || '';
-                    var duration = 1500;
-                    var startTime = performance.now();
-
-                    function updateCounter(currentTime) {
-                        var elapsed = currentTime - startTime;
-                        var progress = Math.min(elapsed / duration, 1);
-                        var eased = 1 - Math.pow(1 - progress, 3);
-                        var currentValue = Math.round(eased * target);
-                        counter.textContent = (prefix || '') + currentValue + suffix;
-                        if (progress < 1) {
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.textContent = (prefix || '') + target + suffix;
-                        }
-                    }
-                    requestAnimationFrame(updateCounter);
-                });
-            }
-
-            var counterObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        counterObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            counterObserver.observe(heroStats);
-        } else if (prefersReducedMotion && heroStats) {
-            // Set final values immediately for reduced motion
-            heroStats.querySelectorAll('.number').forEach(function(counter) {
-                var target = counter.getAttribute('data-target');
-                var suffix = counter.getAttribute('data-suffix') || '';
-                var prefix = counter.getAttribute('data-prefix') || '';
-                counter.textContent = prefix + target + suffix;
-            });
-        }
 
         console.log('Avonhead Family Health Centre — ready.');
     })();
