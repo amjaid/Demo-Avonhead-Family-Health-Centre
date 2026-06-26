@@ -10,6 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
+    <!-- White‑label: hide body if clinic param is present (injected synchronously) -->
+    <script>
+        (function(){
+            if (new URLSearchParams(window.location.search).has('clinic')) {
+                document.write('<style id="wl-hide">body{visibility:hidden;}</style>');
+            }
+        })();
+    </script>
+
     <style>
         :root {
             --primary: #0056A7;
@@ -1090,7 +1099,7 @@
         <div class="container">
             <a href="#home" class="nav-logo">
                 <span class="logo-icon">+</span>
-                Avonhead Health
+                <span class="clinic-short">Avonhead Health</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
@@ -1114,7 +1123,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <span class="hero-badge">🏥 Est. 2010 &bull; Christchurch, NZ</span>
-            <h1>Avonhead Family<br><span>Health Centre</span></h1>
+            <h1><span class="clinic-full">Avonhead Family Health Centre</span></h1>
             <p>Caring for Christchurch Families Since 2010 &mdash; Your trusted local GP practice, committed to your wellbeing.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-secondary">📅 Book an Appointment</a>
@@ -1146,7 +1155,7 @@
                 <div class="about-image">🏥</div>
                 <div class="about-text">
                     <h3>Your Health, Our Priority</h3>
-                    <p>At Avonhead Family Health Centre, we believe in healthcare that puts people first. Our dedicated team of experienced general practitioners and support staff work together to provide personalised medical care for every member of your family &mdash; from infants to seniors.</p>
+                    <p>At <span class="clinic-full">Avonhead Family Health Centre</span>, we believe in healthcare that puts people first. Our dedicated team of experienced general practitioners and support staff work together to provide personalised medical care for every member of your family &mdash; from infants to seniors.</p>
                     <p>Conveniently located in the heart of Avonhead, Christchurch, our modern facility is equipped with the latest medical technology to ensure accurate diagnoses and effective treatments. We are proud to be an accredited General Practice meeting the highest standards of care.</p>
                     <ul class="about-features">
                         <li>Patient-centred care approach</li>
@@ -1162,7 +1171,7 @@
     <!-- ===== WHY CHOOSE US ===== -->
     <section class="why-choose section" id="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Choose Avonhead Health?</h2>
+            <h2 class="section-title">Why Choose <span class="clinic-short">Avonhead Health</span>?</h2>
             <p class="section-subtitle">We go above and beyond to ensure you and your family receive the best possible care.</p>
             <div class="why-grid">
                 <div class="why-card">
@@ -1270,7 +1279,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">★★★★★</div>
-                    <blockquote>"The team at Avonhead Health Centre are absolutely wonderful. They always take the time to listen and explain everything clearly. I wouldn't trust anyone else with my family's health."</blockquote>
+                    <blockquote>"The team at <span class="clinic-short">Avonhead Health</span> Centre are absolutely wonderful. They always take the time to listen and explain everything clearly. I wouldn't trust anyone else with my family's health."</blockquote>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">JM</div>
                         <div>
@@ -1439,7 +1448,7 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Avonhead Family Health Centre</h4>
+                <h4><span class="clinic-full">Avonhead Family Health Centre</span></h4>
                 <p>Your trusted local GP practice in Christchurch, providing compassionate, patient-centred healthcare for the whole family since 2010.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="Facebook" title="Facebook">📘</a>
@@ -1465,7 +1474,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Avonhead Family Health Centre. All rights reserved.</p>
+            <p>&copy; 2026 <span class="clinic-full">Avonhead Family Health Centre</span>. All rights reserved.</p>
             <p class="credit">Website by <a href="https://github.com/amjaid" target="_blank" rel="noopener">Abdullah Jaid</a></p>
         </div>
     </div>
@@ -1480,7 +1489,7 @@
         <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
         <div class="modal-icon">✅</div>
         <h3 id="modalTitle">Booking Confirmed!</h3>
-        <p>Thank you for booking with Avonhead Family Health Centre. We have received your appointment request and will contact you within 24 hours to confirm your preferred date and time.</p>
+        <p>Thank you for booking with <span class="clinic-full">Avonhead Family Health Centre</span>. We have received your appointment request and will contact you within 24 hours to confirm your preferred date and time.</p>
         <p style="font-size:0.85rem;color:var(--text-light);margin-top:-16px;margin-bottom:24px;">If your needs are urgent, please call us directly at <strong>(03) 123 4567</strong>.</p>
         <button class="btn btn-primary" id="modalDone">Got it, thanks!</button>
     </div>
@@ -1634,5 +1643,36 @@
         console.log('Avonhead Family Health Centre — ready.');
     })();
 </script>
+
+<!-- White‑label: swap clinic names and show body (if a clinic param was passed) -->
+<script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var clinic = params.get('clinic');
+        if (!clinic) return;                     // no parameter → do nothing, page renders as-is
+
+        clinic = clinic.trim();
+        // Update document title
+        document.title = clinic + ' | Caring for Christchurch Families';
+
+        // Replace all full‑name placeholders
+        var fullEls = document.querySelectorAll('.clinic-full');
+        for (var i = 0; i < fullEls.length; i++) {
+            fullEls[i].textContent = clinic;
+        }
+
+        // Replace all short‑name placeholders (navbar, testimonial, etc.)
+        var shortEls = document.querySelectorAll('.clinic-short');
+        for (var j = 0; j < shortEls.length; j++) {
+            shortEls[j].textContent = clinic;   // can be shortened in the future if needed
+        }
+
+        // Remove the hiding style and make the body visible
+        var hideStyle = document.getElementById('wl-hide');
+        if (hideStyle) hideStyle.parentNode.removeChild(hideStyle);
+        document.body.style.visibility = 'visible';
+    })();
+</script>
+
 </body>
 </html>
